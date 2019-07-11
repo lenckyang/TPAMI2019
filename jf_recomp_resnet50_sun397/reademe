@@ -1,0 +1,27 @@
+Thees are example codes for the paper of "Recomputation of dense layers for the performance improvement of DCNN".
+
+Please follow the steps to run the codes:
+1. Install the library.
+    pip3 install -r requirements.txt
+
+2. Prepare the dataset.
+    The SUN397 dataset should be settled in one of your disk. For instance:"/data/yang_store/dataSets/SUN397'.
+    In the main script ReComp_Resenet50_sun397.py, find the DATA_DIR variable, set it as "/data/yang_store/dataSets/".
+
+3. Run the script:
+The main scripts is:
+	ReComp_Resenet50_sun397.py
+	
+The script can be as the following syntax: python {main script} -g [#gpu]  -r [w/ or w/o our method]  -t [#test]  -i [interval] -l [loop]
+The option includes:
+	-g: select the index of gpu. Default is 0, namely the first gpu.
+    -r: 0: w/o our method; 1: w/ our method.
+    -t: the # of test, can be any integer. The purpose of this arg is that when we run multiple test with some minor change of the hyperparameter, we can change this parameter so that the feature extracted will not be overwrited.
+	-i: interval of applying our methods. Default is 10.
+	-l: number of loop that the ReComp method takes during each execution session. default is 3.
+    > logfile: this will output the log to a file
+Example:
+    python ReComp_Resenet50_sun397.py -g 0 -r 1     	# Run w/ our method, default settings
+    python ReComp_Resenet50_sun397.py -g 1 -r 1 -l 1 	# Run w/ our method, only 1 loop per session, other with default settings
+
+

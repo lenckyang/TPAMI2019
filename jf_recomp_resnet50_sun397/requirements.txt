@@ -1,0 +1,14 @@
+numpy
+scipy
+argparse
+datetime
+Pillow
+cython
+matplotlib
+scikit-image
+tensorflow==1.12.0
+keras==2.1.4
+opencv-python
+h5py
+imgaug
+IPython[all]

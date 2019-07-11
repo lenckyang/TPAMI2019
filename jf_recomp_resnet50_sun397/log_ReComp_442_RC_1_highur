@@ -1,0 +1,739 @@
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\python.exe D:/PycharmProjects/jf_recomp_resnet50_sun397/ReComp_Resenet50_sun397.py
+Using TensorFlow backend.
+Program detail:
+Date: 2019-05-14 11:32:21.216919
+Machine: DESKTOP-8PR49J9
+MODEL: resnet50
+DATASET: sun397
+TEST_SETTING: default
+RC_SETTING: 1
+
+Preparing data...
+Loading image...
+Begin to create a map to tansfer the str label to int label...
+397 class names are loaded
+['/a/abbey', '/a/airplane_cabin', '/a/airport_terminal', '/a/alley', '/a/amphitheater', '/a/amusement_arcade', '/a/amusement_park', '/a/anechoic_chamber', '/a/apartment_building/outdoor', '/a/apse/indoor', '/a/aquarium', '/a/aqueduct', '/a/arch', '/a/archive', '/a/arrival_gate/outdoor', '/a/art_gallery', '/a/art_school', '/a/art_studio', '/a/assembly_line', '/a/athletic_field/outdoor', '/a/atrium/public', '/a/attic', '/a/auditorium', '/a/auto_factory', '/b/badlands', '/b/badminton_court/indoor', '/b/baggage_claim', '/b/bakery/shop', '/b/balcony/exterior', '/b/balcony/interior', '/b/ball_pit', '/b/ballroom', '/b/bamboo_forest', '/b/banquet_hall', '/b/bar', '/b/barn', '/b/barndoor', '/b/baseball_field', '/b/basement', '/b/basilica', '/b/basketball_court/outdoor', '/b/bathroom', '/b/batters_box', '/b/bayou', '/b/bazaar/indoor', '/b/bazaar/outdoor', '/b/beach', '/b/beauty_salon', '/b/bedroom', '/b/berth', '/b/biology_laboratory', '/b/bistro/indoor', '/b/boardwalk', '/b/boat_deck', '/b/boathouse', '/b/bookstore', '/b/booth/indoor', '/b/botanical_garden', '/b/bow_window/indoor', '/b/bow_window/outdoor', '/b/bowling_alley', '/b/boxing_ring', '/b/brewery/indoor', '/b/bridge', '/b/building_facade', '/b/bullring', '/b/burial_chamber', '/b/bus_interior', '/b/butchers_shop', '/b/butte', '/c/cabin/outdoor', '/c/cafeteria', '/c/campsite', '/c/campus', '/c/canal/natural', '/c/canal/urban', '/c/candy_store', '/c/canyon', '/c/car_interior/backseat', '/c/car_interior/frontseat', '/c/carrousel', '/c/casino/indoor', '/c/castle', '/c/catacomb', '/c/cathedral/indoor', '/c/cathedral/outdoor', '/c/cavern/indoor', '/c/cemetery', '/c/chalet', '/c/cheese_factory', '/c/chemistry_lab', '/c/chicken_coop/indoor', '/c/chicken_coop/outdoor', '/c/childs_room', '/c/church/indoor', '/c/church/outdoor', '/c/classroom', '/c/clean_room', '/c/cliff', '/c/cloister/indoor', '/c/closet', '/c/clothing_store', '/c/coast', '/c/cockpit', '/c/coffee_shop', '/c/computer_room', '/c/conference_center', '/c/conference_room', '/c/construction_site', '/c/control_room', '/c/control_tower/outdoor', '/c/corn_field', '/c/corral', '/c/corridor', '/c/cottage_garden', '/c/courthouse', '/c/courtroom', '/c/courtyard', '/c/covered_bridge/exterior', '/c/creek', '/c/crevasse', '/c/crosswalk', '/c/cubicle/office', '/d/dam', '/d/delicatessen', '/d/dentists_office', '/d/desert/sand', '/d/desert/vegetation', '/d/diner/indoor', '/d/diner/outdoor', '/d/dinette/home', '/d/dinette/vehicle', '/d/dining_car', '/d/dining_room', '/d/discotheque', '/d/dock', '/d/doorway/outdoor', '/d/dorm_room', '/d/driveway', '/d/driving_range/outdoor', '/d/drugstore', '/e/electrical_substation', '/e/elevator/door', '/e/elevator/interior', '/e/elevator_shaft', '/e/engine_room', '/e/escalator/indoor', '/e/excavation', '/f/factory/indoor', '/f/fairway', '/f/fastfood_restaurant', '/f/field/cultivated', '/f/field/wild', '/f/fire_escape', '/f/fire_station', '/f/firing_range/indoor', '/f/fishpond', '/f/florist_shop/indoor', '/f/food_court', '/f/forest/broadleaf', '/f/forest/needleleaf', '/f/forest_path', '/f/forest_road', '/f/formal_garden', '/f/fountain', '/g/galley', '/g/game_room', '/g/garage/indoor', '/g/garbage_dump', '/g/gas_station', '/g/gazebo/exterior', '/g/general_store/indoor', '/g/general_store/outdoor', '/g/gift_shop', '/g/golf_course', '/g/greenhouse/indoor', '/g/greenhouse/outdoor', '/g/gymnasium/indoor', '/h/hangar/indoor', '/h/hangar/outdoor', '/h/harbor', '/h/hayfield', '/h/heliport', '/h/herb_garden', '/h/highway', '/h/hill', '/h/home_office', '/h/hospital', '/h/hospital_room', '/h/hot_spring', '/h/hot_tub/outdoor', '/h/hotel/outdoor', '/h/hotel_room', '/h/house', '/h/hunting_lodge/outdoor', '/i/ice_cream_parlor', '/i/ice_floe', '/i/ice_shelf', '/i/ice_skating_rink/indoor', '/i/ice_skating_rink/outdoor', '/i/iceberg', '/i/igloo', '/i/industrial_area', '/i/inn/outdoor', '/i/islet', '/j/jacuzzi/indoor', '/j/jail/indoor', '/j/jail_cell', '/j/jewelry_shop', '/k/kasbah', '/k/kennel/indoor', '/k/kennel/outdoor', '/k/kindergarden_classroom', '/k/kitchen', '/k/kitchenette', '/l/labyrinth/outdoor', '/l/lake/natural', '/l/landfill', '/l/landing_deck', '/l/laundromat', '/l/lecture_room', '/l/library/indoor', '/l/library/outdoor', '/l/lido_deck/outdoor', '/l/lift_bridge', '/l/lighthouse', '/l/limousine_interior', '/l/living_room', '/l/lobby', '/l/lock_chamber', '/l/locker_room', '/m/mansion', '/m/manufactured_home', '/m/market/indoor', '/m/market/outdoor', '/m/marsh', '/m/martial_arts_gym', '/m/mausoleum', '/m/medina', '/m/moat/water', '/m/monastery/outdoor', '/m/mosque/indoor', '/m/mosque/outdoor', '/m/motel', '/m/mountain', '/m/mountain_snowy', '/m/movie_theater/indoor', '/m/museum/indoor', '/m/music_store', '/m/music_studio', '/n/nuclear_power_plant/outdoor', '/n/nursery', '/o/oast_house', '/o/observatory/outdoor', '/o/ocean', '/o/office', '/o/office_building', '/o/oil_refinery/outdoor', '/o/oilrig', '/o/operating_room', '/o/orchard', '/o/outhouse/outdoor', '/p/pagoda', '/p/palace', '/p/pantry', '/p/park', '/p/parking_garage/indoor', '/p/parking_garage/outdoor', '/p/parking_lot', '/p/parlor', '/p/pasture', '/p/patio', '/p/pavilion', '/p/pharmacy', '/p/phone_booth', '/p/physics_laboratory', '/p/picnic_area', '/p/pilothouse/indoor', '/p/planetarium/outdoor', '/p/playground', '/p/playroom', '/p/plaza', '/p/podium/indoor', '/p/podium/outdoor', '/p/pond', '/p/poolroom/establishment', '/p/poolroom/home', '/p/power_plant/outdoor', '/p/promenade_deck', '/p/pub/indoor', '/p/pulpit', '/p/putting_green', '/r/racecourse', '/r/raceway', '/r/raft', '/r/railroad_track', '/r/rainforest', '/r/reception', '/r/recreation_room', '/r/residential_neighborhood', '/r/restaurant', '/r/restaurant_kitchen', '/r/restaurant_patio', '/r/rice_paddy', '/r/riding_arena', '/r/river', '/r/rock_arch', '/r/rope_bridge', '/r/ruin', '/r/runway', '/s/sandbar', '/s/sandbox', '/s/sauna', '/s/schoolhouse', '/s/sea_cliff', '/s/server_room', '/s/shed', '/s/shoe_shop', '/s/shopfront', '/s/shopping_mall/indoor', '/s/shower', '/s/skatepark', '/s/ski_lodge', '/s/ski_resort', '/s/ski_slope', '/s/sky', '/s/skyscraper', '/s/slum', '/s/snowfield', '/s/squash_court', '/s/stable', '/s/stadium/baseball', '/s/stadium/football', '/s/stage/indoor', '/s/staircase', '/s/street', '/s/subway_interior', '/s/subway_station/platform', '/s/supermarket', '/s/sushi_bar', '/s/swamp', '/s/swimming_pool/indoor', '/s/swimming_pool/outdoor', '/s/synagogue/indoor', '/s/synagogue/outdoor', '/t/television_studio', '/t/temple/east_asia', '/t/temple/south_asia', '/t/tennis_court/indoor', '/t/tennis_court/outdoor', '/t/tent/outdoor', '/t/theater/indoor_procenium', '/t/theater/indoor_seats', '/t/thriftshop', '/t/throne_room', '/t/ticket_booth', '/t/toll_plaza', '/t/topiary_garden', '/t/tower', '/t/toyshop', '/t/track/outdoor', '/t/train_railway', '/t/train_station/platform', '/t/tree_farm', '/t/tree_house', '/t/trench', '/u/underwater/coral_reef', '/u/utility_room', '/v/valley', '/v/van_interior', '/v/vegetable_garden', '/v/veranda', '/v/veterinarians_office', '/v/viaduct', '/v/videostore', '/v/village', '/v/vineyard', '/v/volcano', '/v/volleyball_court/indoor', '/v/volleyball_court/outdoor', '/w/waiting_room', '/w/warehouse/indoor', '/w/water_tower', '/w/waterfall/block', '/w/waterfall/fan', '/w/waterfall/plunge', '/w/watering_hole', '/w/wave', '/w/wet_bar', '/w/wheat_field', '/w/wind_farm', '/w/windmill', '/w/wine_cellar/barrel_storage', '/w/wine_cellar/bottle_storage', '/w/wrestling_ring/indoor', '/y/yard', '/y/youth_hostel']
+Label map created...
+
+Begin to load training data...
+
+Loading image file D:/dataSet/SUN397/Patitions/Training_01.txt
+Image count: 19850
+0 image loaded.
+1000 image loaded.
+2000 image loaded.
+3000 image loaded.
+4000 image loaded.
+5000 image loaded.
+6000 image loaded.
+7000 image loaded.
+8000 image loaded.
+9000 image loaded.
+10000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1385478 bytes but only got 23143. Skipping tag 513
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 7276331008 bytes but only got 0. Skipping tag 7
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1879769088 bytes but only got 0. Skipping tag 4
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 3014066176 bytes but only got 0. Skipping tag 4
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 3568893952 bytes but only got 23144. Skipping tag 4
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 598221316 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 4194304 bytes but only got 0. Skipping tag 5
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 17249141424 bytes but only got 0. Skipping tag 66
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 33554580 bytes but only got 0. Skipping tag 11
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 10878986 bytes but only got 0. Skipping tag 712
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 4383056960 bytes but only got 22044. Skipping tag 18
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 541786190 bytes but only got 0. Skipping tag 16576
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 2256669952 bytes but only got 0. Skipping tag 17
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 67518482 bytes but only got 0. Skipping tag 7
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 4454482224 bytes but only got 0. Skipping tag 237
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 2359296 bytes but only got 0. Skipping tag 4096
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 671088900 bytes but only got 0. Skipping tag 20
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 65537 bytes but only got 0. Skipping tag 65535
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 262146 bytes but only got 0. Skipping tag 2
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 262151 bytes but only got 0. Skipping tag 56
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8834460608 bytes but only got 0. Skipping tag 35831
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 6.
+  warnings.warn(str(msg))
+11000 image loaded.
+12000 image loaded.
+13000 image loaded.
+14000 image loaded.
+15000 image loaded.
+16000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 3145728 bytes but only got 0. Skipping tag 19788
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 80000 bytes but only got 0. Skipping tag 64640
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 2684485632 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 5469503488 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 17956864 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 18481152 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 33619968 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 8.
+  warnings.warn(str(msg))
+17000 image loaded.
+18000 image loaded.
+19000 image loaded.
+
+Image file loaded, the shape is (19850, 224, 224, 3)
+Loading label file D:/dataSet/SUN397/ClassName.txt
+Labels loaded, shape is:(19850, 397)
+
+Training data loaded.
+
+
+Begin to load testing data...
+
+Loading image file D:/dataSet/SUN397/Patitions/Testing_01.txt
+Image count: 19850
+0 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Corrupt EXIF data.  Expecting to read 4 bytes but only got 0.
+  warnings.warn(str(msg))
+1000 image loaded.
+2000 image loaded.
+3000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 4718592 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+4000 image loaded.
+5000 image loaded.
+6000 image loaded.
+7000 image loaded.
+8000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 150 bytes but only got 128. Skipping tag 37510
+  " Skipping tag %s" % (size, len(data), tag))
+9000 image loaded.
+10000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4.
+  warnings.warn(str(msg))
+11000 image loaded.
+12000 image loaded.
+13000 image loaded.
+14000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1441814 bytes but only got 0. Skipping tag 33
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 428 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 196608 bytes but only got 0. Skipping tag 60
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 196608 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 524288 bytes but only got 0. Skipping tag 240
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1048576 bytes but only got 0. Skipping tag 23368
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 2097152 bytes but only got 0. Skipping tag 1860
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 458752 bytes but only got 0. Skipping tag 10869
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 458752 bytes but only got 0. Skipping tag 1037
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 393216 bytes but only got 0. Skipping tag 14080
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 786432 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1572864 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 33752069 bytes but only got 0. Skipping tag 0
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1485720220 bytes but only got 0. Skipping tag 21382
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 6196376888 bytes but only got 0. Skipping tag 57855
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 282 bytes but only got 0. Skipping tag 1
+  " Skipping tag %s" % (size, len(data), tag))
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 513 bytes but only got 0. Skipping tag 1
+  " Skipping tag %s" % (size, len(data), tag))
+15000 image loaded.
+16000 image loaded.
+C:\Users\JeremyFeng\AppData\Local\Programs\Python\Python36\lib\site-packages\PIL\TiffImagePlugin.py:754: UserWarning: Possibly corrupt EXIF data.  Expecting to read 2621440 bytes but only got 0. Skipping tag 19788
+  " Skipping tag %s" % (size, len(data), tag))
+17000 image loaded.
+18000 image loaded.
+19000 image loaded.
+
+Image file loaded, the shape is (19850, 224, 224, 3)
+Loading label file D:/dataSet/SUN397/ClassName.txt
+Labels loaded, shape is:(19850, 397)
+
+Testing data loaded.
+
+Preprocessing img...
+Data loaded.
+Building the model...
+
+Building the resnet50 model...
+2019-05-14 12:11:01.477880: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2019-05-14 12:11:05.735920: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties:
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:01:00.0
+totalMemory: 11.00GiB freeMemory: 9.08GiB
+2019-05-14 12:11:05.749475: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:11:31.283875: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:11:31.284979: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:11:31.286251: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:11:31.368190: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Model created
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to
+==================================================================================================
+input_1 (InputLayer)            (None, 224, 224, 3)  0
+__________________________________________________________________________________________________
+conv1 (Conv2D)                  (None, 112, 112, 64) 9472        input_1[0][0]
+__________________________________________________________________________________________________
+bn_conv1 (BatchNormalization)   (None, 112, 112, 64) 256         conv1[0][0]
+__________________________________________________________________________________________________
+activation_1 (Activation)       (None, 112, 112, 64) 0           bn_conv1[0][0]
+__________________________________________________________________________________________________
+max_pooling2d_1 (MaxPooling2D)  (None, 55, 55, 64)   0           activation_1[0][0]
+__________________________________________________________________________________________________
+res2a_branch2a (Conv2D)         (None, 55, 55, 64)   4160        max_pooling2d_1[0][0]
+__________________________________________________________________________________________________
+bn2a_branch2a (BatchNormalizati (None, 55, 55, 64)   256         res2a_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_2 (Activation)       (None, 55, 55, 64)   0           bn2a_branch2a[0][0]
+__________________________________________________________________________________________________
+res2a_branch2b (Conv2D)         (None, 55, 55, 64)   36928       activation_2[0][0]
+__________________________________________________________________________________________________
+bn2a_branch2b (BatchNormalizati (None, 55, 55, 64)   256         res2a_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_3 (Activation)       (None, 55, 55, 64)   0           bn2a_branch2b[0][0]
+__________________________________________________________________________________________________
+res2a_branch2c (Conv2D)         (None, 55, 55, 256)  16640       activation_3[0][0]
+__________________________________________________________________________________________________
+res2a_branch1 (Conv2D)          (None, 55, 55, 256)  16640       max_pooling2d_1[0][0]
+__________________________________________________________________________________________________
+bn2a_branch2c (BatchNormalizati (None, 55, 55, 256)  1024        res2a_branch2c[0][0]
+__________________________________________________________________________________________________
+bn2a_branch1 (BatchNormalizatio (None, 55, 55, 256)  1024        res2a_branch1[0][0]
+__________________________________________________________________________________________________
+add_1 (Add)                     (None, 55, 55, 256)  0           bn2a_branch2c[0][0]
+                                                                 bn2a_branch1[0][0]
+__________________________________________________________________________________________________
+activation_4 (Activation)       (None, 55, 55, 256)  0           add_1[0][0]
+__________________________________________________________________________________________________
+res2b_branch2a (Conv2D)         (None, 55, 55, 64)   16448       activation_4[0][0]
+__________________________________________________________________________________________________
+bn2b_branch2a (BatchNormalizati (None, 55, 55, 64)   256         res2b_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_5 (Activation)       (None, 55, 55, 64)   0           bn2b_branch2a[0][0]
+__________________________________________________________________________________________________
+res2b_branch2b (Conv2D)         (None, 55, 55, 64)   36928       activation_5[0][0]
+__________________________________________________________________________________________________
+bn2b_branch2b (BatchNormalizati (None, 55, 55, 64)   256         res2b_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_6 (Activation)       (None, 55, 55, 64)   0           bn2b_branch2b[0][0]
+__________________________________________________________________________________________________
+res2b_branch2c (Conv2D)         (None, 55, 55, 256)  16640       activation_6[0][0]
+__________________________________________________________________________________________________
+bn2b_branch2c (BatchNormalizati (None, 55, 55, 256)  1024        res2b_branch2c[0][0]
+__________________________________________________________________________________________________
+add_2 (Add)                     (None, 55, 55, 256)  0           bn2b_branch2c[0][0]
+                                                                 activation_4[0][0]
+__________________________________________________________________________________________________
+activation_7 (Activation)       (None, 55, 55, 256)  0           add_2[0][0]
+__________________________________________________________________________________________________
+res2c_branch2a (Conv2D)         (None, 55, 55, 64)   16448       activation_7[0][0]
+__________________________________________________________________________________________________
+bn2c_branch2a (BatchNormalizati (None, 55, 55, 64)   256         res2c_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_8 (Activation)       (None, 55, 55, 64)   0           bn2c_branch2a[0][0]
+__________________________________________________________________________________________________
+res2c_branch2b (Conv2D)         (None, 55, 55, 64)   36928       activation_8[0][0]
+__________________________________________________________________________________________________
+bn2c_branch2b (BatchNormalizati (None, 55, 55, 64)   256         res2c_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_9 (Activation)       (None, 55, 55, 64)   0           bn2c_branch2b[0][0]
+__________________________________________________________________________________________________
+res2c_branch2c (Conv2D)         (None, 55, 55, 256)  16640       activation_9[0][0]
+__________________________________________________________________________________________________
+bn2c_branch2c (BatchNormalizati (None, 55, 55, 256)  1024        res2c_branch2c[0][0]
+__________________________________________________________________________________________________
+add_3 (Add)                     (None, 55, 55, 256)  0           bn2c_branch2c[0][0]
+                                                                 activation_7[0][0]
+__________________________________________________________________________________________________
+activation_10 (Activation)      (None, 55, 55, 256)  0           add_3[0][0]
+__________________________________________________________________________________________________
+res3a_branch2a (Conv2D)         (None, 28, 28, 128)  32896       activation_10[0][0]
+__________________________________________________________________________________________________
+bn3a_branch2a (BatchNormalizati (None, 28, 28, 128)  512         res3a_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_11 (Activation)      (None, 28, 28, 128)  0           bn3a_branch2a[0][0]
+__________________________________________________________________________________________________
+res3a_branch2b (Conv2D)         (None, 28, 28, 128)  147584      activation_11[0][0]
+__________________________________________________________________________________________________
+bn3a_branch2b (BatchNormalizati (None, 28, 28, 128)  512         res3a_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_12 (Activation)      (None, 28, 28, 128)  0           bn3a_branch2b[0][0]
+__________________________________________________________________________________________________
+res3a_branch2c (Conv2D)         (None, 28, 28, 512)  66048       activation_12[0][0]
+__________________________________________________________________________________________________
+res3a_branch1 (Conv2D)          (None, 28, 28, 512)  131584      activation_10[0][0]
+__________________________________________________________________________________________________
+bn3a_branch2c (BatchNormalizati (None, 28, 28, 512)  2048        res3a_branch2c[0][0]
+__________________________________________________________________________________________________
+bn3a_branch1 (BatchNormalizatio (None, 28, 28, 512)  2048        res3a_branch1[0][0]
+__________________________________________________________________________________________________
+add_4 (Add)                     (None, 28, 28, 512)  0           bn3a_branch2c[0][0]
+                                                                 bn3a_branch1[0][0]
+__________________________________________________________________________________________________
+activation_13 (Activation)      (None, 28, 28, 512)  0           add_4[0][0]
+__________________________________________________________________________________________________
+res3b_branch2a (Conv2D)         (None, 28, 28, 128)  65664       activation_13[0][0]
+__________________________________________________________________________________________________
+bn3b_branch2a (BatchNormalizati (None, 28, 28, 128)  512         res3b_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_14 (Activation)      (None, 28, 28, 128)  0           bn3b_branch2a[0][0]
+__________________________________________________________________________________________________
+res3b_branch2b (Conv2D)         (None, 28, 28, 128)  147584      activation_14[0][0]
+__________________________________________________________________________________________________
+bn3b_branch2b (BatchNormalizati (None, 28, 28, 128)  512         res3b_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_15 (Activation)      (None, 28, 28, 128)  0           bn3b_branch2b[0][0]
+__________________________________________________________________________________________________
+res3b_branch2c (Conv2D)         (None, 28, 28, 512)  66048       activation_15[0][0]
+__________________________________________________________________________________________________
+bn3b_branch2c (BatchNormalizati (None, 28, 28, 512)  2048        res3b_branch2c[0][0]
+__________________________________________________________________________________________________
+add_5 (Add)                     (None, 28, 28, 512)  0           bn3b_branch2c[0][0]
+                                                                 activation_13[0][0]
+__________________________________________________________________________________________________
+activation_16 (Activation)      (None, 28, 28, 512)  0           add_5[0][0]
+__________________________________________________________________________________________________
+res3c_branch2a (Conv2D)         (None, 28, 28, 128)  65664       activation_16[0][0]
+__________________________________________________________________________________________________
+bn3c_branch2a (BatchNormalizati (None, 28, 28, 128)  512         res3c_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_17 (Activation)      (None, 28, 28, 128)  0           bn3c_branch2a[0][0]
+__________________________________________________________________________________________________
+res3c_branch2b (Conv2D)         (None, 28, 28, 128)  147584      activation_17[0][0]
+__________________________________________________________________________________________________
+bn3c_branch2b (BatchNormalizati (None, 28, 28, 128)  512         res3c_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_18 (Activation)      (None, 28, 28, 128)  0           bn3c_branch2b[0][0]
+__________________________________________________________________________________________________
+res3c_branch2c (Conv2D)         (None, 28, 28, 512)  66048       activation_18[0][0]
+__________________________________________________________________________________________________
+bn3c_branch2c (BatchNormalizati (None, 28, 28, 512)  2048        res3c_branch2c[0][0]
+__________________________________________________________________________________________________
+add_6 (Add)                     (None, 28, 28, 512)  0           bn3c_branch2c[0][0]
+                                                                 activation_16[0][0]
+__________________________________________________________________________________________________
+activation_19 (Activation)      (None, 28, 28, 512)  0           add_6[0][0]
+__________________________________________________________________________________________________
+res3d_branch2a (Conv2D)         (None, 28, 28, 128)  65664       activation_19[0][0]
+__________________________________________________________________________________________________
+bn3d_branch2a (BatchNormalizati (None, 28, 28, 128)  512         res3d_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_20 (Activation)      (None, 28, 28, 128)  0           bn3d_branch2a[0][0]
+__________________________________________________________________________________________________
+res3d_branch2b (Conv2D)         (None, 28, 28, 128)  147584      activation_20[0][0]
+__________________________________________________________________________________________________
+bn3d_branch2b (BatchNormalizati (None, 28, 28, 128)  512         res3d_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_21 (Activation)      (None, 28, 28, 128)  0           bn3d_branch2b[0][0]
+__________________________________________________________________________________________________
+res3d_branch2c (Conv2D)         (None, 28, 28, 512)  66048       activation_21[0][0]
+__________________________________________________________________________________________________
+bn3d_branch2c (BatchNormalizati (None, 28, 28, 512)  2048        res3d_branch2c[0][0]
+__________________________________________________________________________________________________
+add_7 (Add)                     (None, 28, 28, 512)  0           bn3d_branch2c[0][0]
+                                                                 activation_19[0][0]
+__________________________________________________________________________________________________
+activation_22 (Activation)      (None, 28, 28, 512)  0           add_7[0][0]
+__________________________________________________________________________________________________
+res4a_branch2a (Conv2D)         (None, 14, 14, 256)  131328      activation_22[0][0]
+__________________________________________________________________________________________________
+bn4a_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4a_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_23 (Activation)      (None, 14, 14, 256)  0           bn4a_branch2a[0][0]
+__________________________________________________________________________________________________
+res4a_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_23[0][0]
+__________________________________________________________________________________________________
+bn4a_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4a_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_24 (Activation)      (None, 14, 14, 256)  0           bn4a_branch2b[0][0]
+__________________________________________________________________________________________________
+res4a_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_24[0][0]
+__________________________________________________________________________________________________
+res4a_branch1 (Conv2D)          (None, 14, 14, 1024) 525312      activation_22[0][0]
+__________________________________________________________________________________________________
+bn4a_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4a_branch2c[0][0]
+__________________________________________________________________________________________________
+bn4a_branch1 (BatchNormalizatio (None, 14, 14, 1024) 4096        res4a_branch1[0][0]
+__________________________________________________________________________________________________
+add_8 (Add)                     (None, 14, 14, 1024) 0           bn4a_branch2c[0][0]
+                                                                 bn4a_branch1[0][0]
+__________________________________________________________________________________________________
+activation_25 (Activation)      (None, 14, 14, 1024) 0           add_8[0][0]
+__________________________________________________________________________________________________
+res4b_branch2a (Conv2D)         (None, 14, 14, 256)  262400      activation_25[0][0]
+__________________________________________________________________________________________________
+bn4b_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4b_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_26 (Activation)      (None, 14, 14, 256)  0           bn4b_branch2a[0][0]
+__________________________________________________________________________________________________
+res4b_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_26[0][0]
+__________________________________________________________________________________________________
+bn4b_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4b_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_27 (Activation)      (None, 14, 14, 256)  0           bn4b_branch2b[0][0]
+__________________________________________________________________________________________________
+res4b_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_27[0][0]
+__________________________________________________________________________________________________
+bn4b_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4b_branch2c[0][0]
+__________________________________________________________________________________________________
+add_9 (Add)                     (None, 14, 14, 1024) 0           bn4b_branch2c[0][0]
+                                                                 activation_25[0][0]
+__________________________________________________________________________________________________
+activation_28 (Activation)      (None, 14, 14, 1024) 0           add_9[0][0]
+__________________________________________________________________________________________________
+res4c_branch2a (Conv2D)         (None, 14, 14, 256)  262400      activation_28[0][0]
+__________________________________________________________________________________________________
+bn4c_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4c_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_29 (Activation)      (None, 14, 14, 256)  0           bn4c_branch2a[0][0]
+__________________________________________________________________________________________________
+res4c_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_29[0][0]
+__________________________________________________________________________________________________
+bn4c_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4c_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_30 (Activation)      (None, 14, 14, 256)  0           bn4c_branch2b[0][0]
+__________________________________________________________________________________________________
+res4c_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_30[0][0]
+__________________________________________________________________________________________________
+bn4c_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4c_branch2c[0][0]
+__________________________________________________________________________________________________
+add_10 (Add)                    (None, 14, 14, 1024) 0           bn4c_branch2c[0][0]
+                                                                 activation_28[0][0]
+__________________________________________________________________________________________________
+activation_31 (Activation)      (None, 14, 14, 1024) 0           add_10[0][0]
+__________________________________________________________________________________________________
+res4d_branch2a (Conv2D)         (None, 14, 14, 256)  262400      activation_31[0][0]
+__________________________________________________________________________________________________
+bn4d_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4d_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_32 (Activation)      (None, 14, 14, 256)  0           bn4d_branch2a[0][0]
+__________________________________________________________________________________________________
+res4d_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_32[0][0]
+__________________________________________________________________________________________________
+bn4d_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4d_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_33 (Activation)      (None, 14, 14, 256)  0           bn4d_branch2b[0][0]
+__________________________________________________________________________________________________
+res4d_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_33[0][0]
+__________________________________________________________________________________________________
+bn4d_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4d_branch2c[0][0]
+__________________________________________________________________________________________________
+add_11 (Add)                    (None, 14, 14, 1024) 0           bn4d_branch2c[0][0]
+                                                                 activation_31[0][0]
+__________________________________________________________________________________________________
+activation_34 (Activation)      (None, 14, 14, 1024) 0           add_11[0][0]
+__________________________________________________________________________________________________
+res4e_branch2a (Conv2D)         (None, 14, 14, 256)  262400      activation_34[0][0]
+__________________________________________________________________________________________________
+bn4e_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4e_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_35 (Activation)      (None, 14, 14, 256)  0           bn4e_branch2a[0][0]
+__________________________________________________________________________________________________
+res4e_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_35[0][0]
+__________________________________________________________________________________________________
+bn4e_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4e_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_36 (Activation)      (None, 14, 14, 256)  0           bn4e_branch2b[0][0]
+__________________________________________________________________________________________________
+res4e_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_36[0][0]
+__________________________________________________________________________________________________
+bn4e_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4e_branch2c[0][0]
+__________________________________________________________________________________________________
+add_12 (Add)                    (None, 14, 14, 1024) 0           bn4e_branch2c[0][0]
+                                                                 activation_34[0][0]
+__________________________________________________________________________________________________
+activation_37 (Activation)      (None, 14, 14, 1024) 0           add_12[0][0]
+__________________________________________________________________________________________________
+res4f_branch2a (Conv2D)         (None, 14, 14, 256)  262400      activation_37[0][0]
+__________________________________________________________________________________________________
+bn4f_branch2a (BatchNormalizati (None, 14, 14, 256)  1024        res4f_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_38 (Activation)      (None, 14, 14, 256)  0           bn4f_branch2a[0][0]
+__________________________________________________________________________________________________
+res4f_branch2b (Conv2D)         (None, 14, 14, 256)  590080      activation_38[0][0]
+__________________________________________________________________________________________________
+bn4f_branch2b (BatchNormalizati (None, 14, 14, 256)  1024        res4f_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_39 (Activation)      (None, 14, 14, 256)  0           bn4f_branch2b[0][0]
+__________________________________________________________________________________________________
+res4f_branch2c (Conv2D)         (None, 14, 14, 1024) 263168      activation_39[0][0]
+__________________________________________________________________________________________________
+bn4f_branch2c (BatchNormalizati (None, 14, 14, 1024) 4096        res4f_branch2c[0][0]
+__________________________________________________________________________________________________
+add_13 (Add)                    (None, 14, 14, 1024) 0           bn4f_branch2c[0][0]
+                                                                 activation_37[0][0]
+__________________________________________________________________________________________________
+activation_40 (Activation)      (None, 14, 14, 1024) 0           add_13[0][0]
+__________________________________________________________________________________________________
+res5a_branch2a (Conv2D)         (None, 7, 7, 512)    524800      activation_40[0][0]
+__________________________________________________________________________________________________
+bn5a_branch2a (BatchNormalizati (None, 7, 7, 512)    2048        res5a_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_41 (Activation)      (None, 7, 7, 512)    0           bn5a_branch2a[0][0]
+__________________________________________________________________________________________________
+res5a_branch2b (Conv2D)         (None, 7, 7, 512)    2359808     activation_41[0][0]
+__________________________________________________________________________________________________
+bn5a_branch2b (BatchNormalizati (None, 7, 7, 512)    2048        res5a_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_42 (Activation)      (None, 7, 7, 512)    0           bn5a_branch2b[0][0]
+__________________________________________________________________________________________________
+res5a_branch2c (Conv2D)         (None, 7, 7, 2048)   1050624     activation_42[0][0]
+__________________________________________________________________________________________________
+res5a_branch1 (Conv2D)          (None, 7, 7, 2048)   2099200     activation_40[0][0]
+__________________________________________________________________________________________________
+bn5a_branch2c (BatchNormalizati (None, 7, 7, 2048)   8192        res5a_branch2c[0][0]
+__________________________________________________________________________________________________
+bn5a_branch1 (BatchNormalizatio (None, 7, 7, 2048)   8192        res5a_branch1[0][0]
+__________________________________________________________________________________________________
+add_14 (Add)                    (None, 7, 7, 2048)   0           bn5a_branch2c[0][0]
+                                                                 bn5a_branch1[0][0]
+__________________________________________________________________________________________________
+activation_43 (Activation)      (None, 7, 7, 2048)   0           add_14[0][0]
+__________________________________________________________________________________________________
+res5b_branch2a (Conv2D)         (None, 7, 7, 512)    1049088     activation_43[0][0]
+__________________________________________________________________________________________________
+bn5b_branch2a (BatchNormalizati (None, 7, 7, 512)    2048        res5b_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_44 (Activation)      (None, 7, 7, 512)    0           bn5b_branch2a[0][0]
+__________________________________________________________________________________________________
+res5b_branch2b (Conv2D)         (None, 7, 7, 512)    2359808     activation_44[0][0]
+__________________________________________________________________________________________________
+bn5b_branch2b (BatchNormalizati (None, 7, 7, 512)    2048        res5b_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_45 (Activation)      (None, 7, 7, 512)    0           bn5b_branch2b[0][0]
+__________________________________________________________________________________________________
+res5b_branch2c (Conv2D)         (None, 7, 7, 2048)   1050624     activation_45[0][0]
+__________________________________________________________________________________________________
+bn5b_branch2c (BatchNormalizati (None, 7, 7, 2048)   8192        res5b_branch2c[0][0]
+__________________________________________________________________________________________________
+add_15 (Add)                    (None, 7, 7, 2048)   0           bn5b_branch2c[0][0]
+                                                                 activation_43[0][0]
+__________________________________________________________________________________________________
+activation_46 (Activation)      (None, 7, 7, 2048)   0           add_15[0][0]
+__________________________________________________________________________________________________
+res5c_branch2a (Conv2D)         (None, 7, 7, 512)    1049088     activation_46[0][0]
+__________________________________________________________________________________________________
+bn5c_branch2a (BatchNormalizati (None, 7, 7, 512)    2048        res5c_branch2a[0][0]
+__________________________________________________________________________________________________
+activation_47 (Activation)      (None, 7, 7, 512)    0           bn5c_branch2a[0][0]
+__________________________________________________________________________________________________
+res5c_branch2b (Conv2D)         (None, 7, 7, 512)    2359808     activation_47[0][0]
+__________________________________________________________________________________________________
+bn5c_branch2b (BatchNormalizati (None, 7, 7, 512)    2048        res5c_branch2b[0][0]
+__________________________________________________________________________________________________
+activation_48 (Activation)      (None, 7, 7, 512)    0           bn5c_branch2b[0][0]
+__________________________________________________________________________________________________
+res5c_branch2c (Conv2D)         (None, 7, 7, 2048)   1050624     activation_48[0][0]
+__________________________________________________________________________________________________
+bn5c_branch2c (BatchNormalizati (None, 7, 7, 2048)   8192        res5c_branch2c[0][0]
+__________________________________________________________________________________________________
+add_16 (Add)                    (None, 7, 7, 2048)   0           bn5c_branch2c[0][0]
+                                                                 activation_46[0][0]
+__________________________________________________________________________________________________
+activation_49 (Activation)      (None, 7, 7, 2048)   0           add_16[0][0]
+__________________________________________________________________________________________________
+avg_pool (AveragePooling2D)     (None, 1, 1, 2048)   0           activation_49[0][0]
+__________________________________________________________________________________________________
+flatten (Flatten)               (None, 2048)         0           avg_pool[0][0]
+__________________________________________________________________________________________________
+fc (Dense)                      (None, 397)          813056      flatten[0][0]
+==================================================================================================
+Total params: 24,400,768
+Trainable params: 24,347,648
+Non-trainable params: 53,120
+__________________________________________________________________________________________________
+Model compiled...
+
+
+Epoch 1 begin at 2019-05-14 12:11:47.052511.
+Epoch 1: BP learning rate: 0.001; Reverse learning update rate: 1.
+Train on 19850 samples, validate on 19850 samples
+Epoch 1/1
+2019-05-14 12:12:26.996206: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.019940: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.32GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.032873: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.379183: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.27GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.472188: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.54GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.509167: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 1.33GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.519723: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.26GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+2019-05-14 12:12:27.525306: W tensorflow/core/common_runtime/bfc_allocator.cc:211] Allocator (GPU_0_bfc) ran out of memory trying to allocate 2.32GiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+ - 267s - loss: 5.2229 - acc: 0.0902 - val_loss: 3.6793 - val_acc: 0.2564
+
+Epoch 1: Extracting the training feature...
+Epoch 1, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:18:49.135788: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:18:49.136063: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:18:49.136415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:18:49.136610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:18:49.136960: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-05-14 12:18:52.820811: I tensorflow/core/kernels/cuda_solvers.cc:159] Creating CudaSolver handles for stream 000001F5A117E930
+Epoch 1: After ReComp, acc: 0.2859949622166247
+
+Epoch 2 begin at 2019-05-14 12:20:07.733492.
+Epoch 2: BP learning rate: 0.001; Reverse learning update rate: 1.
+Train on 19850 samples, validate on 19850 samples
+Epoch 2/2
+ - 230s - loss: 2.7489 - acc: 0.4612 - val_loss: 2.4394 - val_acc: 0.4422
+
+Epoch 2: Extracting the training feature...
+Epoch 2, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:26:27.698904: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:26:27.699176: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:26:27.699410: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:26:27.699549: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:26:27.699745: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 2: After ReComp, acc: 0.4537531486146096
+
+Epoch 3 begin at 2019-05-14 12:27:43.088664.
+Epoch 3: BP learning rate: 0.001; Reverse learning update rate: 1.
+Train on 19850 samples, validate on 19850 samples
+Epoch 3/3
+ - 230s - loss: 1.7031 - acc: 0.6516 - val_loss: 2.0880 - val_acc: 0.5017
+
+Epoch 3: Extracting the training feature...
+Epoch 3, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:34:02.660810: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:34:02.661065: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:34:02.661307: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:34:02.661457: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:34:02.661669: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 3: After ReComp, acc: 0.5074055415677183
+
+Epoch 4 begin at 2019-05-14 12:35:18.135397.
+Epoch 4: BP learning rate: 0.001; Reverse learning update rate: 1.
+Train on 19850 samples, validate on 19850 samples
+Epoch 4/4
+ - 230s - loss: 1.1773 - acc: 0.7717 - val_loss: 1.9163 - val_acc: 0.5330
+
+Epoch 4: Extracting the training feature...
+Epoch 4, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:41:37.920604: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:41:37.920846: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:41:37.921072: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:41:37.921216: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:41:37.921419: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 4: After ReComp, acc: 0.535667506300232
+
+Epoch 5 begin at 2019-05-14 12:42:53.398997.
+Epoch 5: BP learning rate: 1e-04; Reverse learning update rate: 0.95.
+Train on 19850 samples, validate on 19850 samples
+Epoch 5/5
+ - 230s - loss: 0.8433 - acc: 0.8707 - val_loss: 1.8601 - val_acc: 0.5452
+
+Epoch 5: Extracting the training feature...
+Epoch 5, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:49:12.439650: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:49:12.439944: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:49:12.440281: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:49:12.440569: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:49:12.440833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 5: After ReComp, acc: 0.5469521410609373
+
+Epoch 6 begin at 2019-05-14 12:50:27.834943.
+Epoch 6: BP learning rate: 1e-04; Reverse learning update rate: 0.95.
+Train on 19850 samples, validate on 19850 samples
+Epoch 6/6
+ - 231s - loss: 0.7709 - acc: 0.8934 - val_loss: 1.8417 - val_acc: 0.5489
+
+Epoch 6: Extracting the training feature...
+Epoch 6, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 12:56:50.811140: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 12:56:50.811454: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 12:56:50.811752: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 12:56:50.811938: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 12:56:50.812199: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 6: After ReComp, acc: 0.5497229219173604
+
+Epoch 7 begin at 2019-05-14 12:58:06.631105.
+Epoch 7: BP learning rate: 1e-04; Reverse learning update rate: 0.95.
+Train on 19850 samples, validate on 19850 samples
+Epoch 7/7
+ - 231s - loss: 0.7235 - acc: 0.9064 - val_loss: 1.8298 - val_acc: 0.5513
+
+Epoch 7: Extracting the training feature...
+Epoch 7, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 13:04:29.763372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 13:04:29.763606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 13:04:29.763825: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 13:04:29.763986: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 13:04:29.764181: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 7: After ReComp, acc: 0.5532493702800808
+
+Epoch 8 begin at 2019-05-14 13:05:46.299815.
+Epoch 8: BP learning rate: 1e-04; Reverse learning update rate: 0.95.
+Train on 19850 samples, validate on 19850 samples
+Epoch 8/8
+ - 230s - loss: 0.6806 - acc: 0.9186 - val_loss: 1.8190 - val_acc: 0.5530
+
+Epoch 8: Extracting the training feature...
+Epoch 8, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 13:12:06.412406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 13:12:06.412770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 13:12:06.413083: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 13:12:06.413281: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 13:12:06.413587: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 8: After ReComp, acc: 0.5538035264513654
+
+Epoch 9 begin at 2019-05-14 13:13:22.567799.
+Epoch 9: BP learning rate: 1e-05; Reverse learning update rate: 0.9.
+Train on 19850 samples, validate on 19850 samples
+Epoch 9/9
+ - 230s - loss: 0.6481 - acc: 0.9257 - val_loss: 1.8151 - val_acc: 0.5542
+
+Epoch 9: Extracting the training feature...
+Epoch 9, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 13:19:42.107253: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 13:19:42.107485: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 13:19:42.107696: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 13:19:42.107833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 13:19:42.108026: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 9: After ReComp, acc: 0.5549118387939348
+
+Epoch 10 begin at 2019-05-14 13:20:57.553955.
+Epoch 10: BP learning rate: 1e-05; Reverse learning update rate: 0.9.
+Train on 19850 samples, validate on 19850 samples
+Epoch 10/10
+ - 231s - loss: 0.6287 - acc: 0.9311 - val_loss: 1.8109 - val_acc: 0.5550
+
+Epoch 10: Extracting the training feature...
+Epoch 10, idx_RCloop 0: Extracting the fc12 weights...
+2019-05-14 13:27:20.841690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-05-14 13:27:20.842048: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-05-14 13:27:20.842292: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0
+2019-05-14 13:27:20.842431: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N
+2019-05-14 13:27:20.842635: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 8775 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1)
+Epoch 10: After ReComp, acc: 0.5558186398014914
+
+
+Process finished with exit code 0
